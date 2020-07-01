@@ -5,43 +5,34 @@ public class MyCollection<Integer> {
     private int size = 0;
     private int capacity = 0;
     private int[] newArray;
-    MyCollection() {
-        //array = new int[capacity];
-    }
+    public MyCollection() {}
 
 
-    /*public void add(int a) {
-        array[size] = a;
-        size++;
-        for (int i = 0; i < capacity; i++) {
-            array[i] += a;
-        }
-    }*/
-    public void add(int a){
+
+    public void add(int value){
 
         if(capacity != 0) {
             newArray = new int[++capacity];
             for (int i = 0; i < capacity-1; i++) {
                 newArray[i] = array[i];
-                newArray[i] += a;
+                newArray[i] += value;
             }
             array = newArray;
-            array[size] = a;
+            array[size] = value;
             size++;
         } else {
             array = new int[++capacity];
-            array[size] = a;
+            array[size] = value;
             size++;
         }
 
     }
 
     public void removeByIndex(int index) {
-        int cc = array[index];
+        int passedNum = array[index];
         size--;
         int newArray[] = new int[--capacity];
         if((index == 0 && size == 0) || (index != 0 && size == 0)) System.out.println("Collection is empty");
-       // else if(index < 0 || index > capacity - 1 ) throw new IndexOutOfBoundsException();
         else if (index >= 0 && index < capacity+1) {
             for (int i = 0; i < capacity+1; i++){
                 if(i < index) newArray[i] = array[i];
@@ -51,7 +42,7 @@ public class MyCollection<Integer> {
         }
 
         for (int i = 0; i < capacity; i++) {
-            array[i] -= cc;
+            array[i] -= passedNum;
         }
 
     }
