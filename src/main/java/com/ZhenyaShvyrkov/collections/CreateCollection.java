@@ -1,11 +1,11 @@
 import java.util.Arrays;
 
-public class MyCollection<Integer> {
+public class CreateCollection<Integer> {
     private int array[];
     private int size = 0;
     private int capacity = 0;
     private int[] newArray;
-    public MyCollection() {}
+    public CreateCollection() {}
 
 
 
